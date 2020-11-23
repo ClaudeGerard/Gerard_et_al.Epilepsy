@@ -1,0 +1,149 @@
+# GRN involved in epilepsy
+
+dLPS/dt = vslps - kdlps*LPS
+
+param vslps=0, kdlps=1.6, 
+
+
+### Equations:
+
+dmIRF8/dt=Vm1IRF8 + Vm2IRF8 * (PU1/(PU1+Kas1pu1)) + Vm3IRF8 * (STAT1a^n/(KSTAT1a1^n+STAT1a^n)) + LPS2*LPSirf8 - KdmIRF8 * mIRF8
+
+param Vm1IRF8=0.0000014, Vm2IRF8=0.003, Vm3IRF8=0.062, Kas1pu1=500, KSTAT1a1=300, LPS2=1, LPSirf8=0.0005, KdmIRF8=0.1669, n=2,
+
+
+
+dmPU1/dt=Vm1PU1 + Vm2PU1 * (PU1/(Kas2PU1 + PU1)) + Vm3PU1 * (CEBPAa^n/(Kas1cebpa^n+CEBPAa^n)) + Vm4PU1 * (NFKBa^n/(Ks5anfkb^n+NFKBa^n)) + LPS2*LPSpu1 - KdmPU1 * mPU1
+
+param Vm1PU1=0.000005, Vm2PU1=0.0008, Vm3PU1=0.0025, Vm4PU1=0.0006, Kas2PU1=5000, Kas1cebpa=10, Ks5anfkb=6.67, LPSpu1=0.002, KdmPU1=0.095,
+
+
+
+dmGCSFR/dt=Vm1GCSFR + Vm2GCSFR * (PU1/(Kas3PU1 + PU1)) + Vm3GCSFR * (CEBPAa^n/(Kas2cebpa^n+CEBPAa^n)) + Vm4GCSFR * (STAT3a^n/(Kas4stat3a^n+STAT3a^n)) + Vm5GCSFR * (STAT1a^n/(KSTAT1a5^n+STAT1a^n)) + LPS2*LPSgcsfr - KdmGCSFR * mGCSFR
+
+param Vm1GCSFR=0.0000006, Vm2GCSFR=0.00001, Vm3GCSFR=0.0005, Vm4GCSFR=0.00006, Vm5GCSFR=0.000001, KSTAT1a5=20, Kas3PU1=100, Kas2cebpa=10, Kas4stat3a=100, LPSgcsfr=0.00028, KdmGCSFR=0.136,
+
+
+
+dmIL6R/dt=Vm1IL6R + Vm2IL6R * (CEBPAa^n/(Kas3cebpa^n+CEBPAa^n)) + Vm3IL6R * (STAT3a^n/(Kas5cebpa^n+STAT3a^n)) + Vm4IL6R * (STAT1a^n/(Kas6cebpa^n+STAT1a^n)) + LPS2*LPSil6r - KdmIL6R * mIL6R
+
+param Vm1IL6R=0.0000005, Vm2IL6R=0.0006, Vm3IL6R=0.00001, Vm4IL6R=0.0001, Kas3cebpa=10, Kas5cebpa=50, Kas6cebpa=62.5, LPSil6r=0, KdmIL6R=0.15,
+
+
+
+dmTNFR1/dt=Vm1TNFR1 + Vm2TNFR1 * (STAT3a^n/(Kasstat3a^n+STAT3a^n)) + Vm3TNFR1 * (CEBPAa^n/(Kas7cebpa^n+CEBPAa^n)) + LPS2*LPStnfr1 - KdmTNFR1 * mTNFR1
+
+param Vm1TNFR1=0.000002, Vm2TNFR1=0.00005, Vm3TNFR1=0.01, Kasstat3a=10, Kas7cebpa=19, LPStnfr1=0.0012, KdmTNFR1=0.075,
+
+
+
+dmCSF1/dt=Vm1CSF1 + Vm2CSF1 * (NFKBa^n/(Ks1anfkb^n+NFKBa^n)) + Vm3CSF1 * (STAT1a^n/(KSTAT1a2^n+STAT1a^n)) + Vm4CSF1 * (STAT3a^n/(Kas2stat3a^n+STAT3a^n)) + Vm5CSF1 * (PU1/(Kas5pu1+ PU1)) + LPS2*LPScsf1 - KdmCSF1 * mCSF1
+
+param Vm1CSF1=0.000005, Vm2CSF1=0.002, Vm3CSF1=0.19, Vm4CSF1=0.007 Vm5CSF1=0.02, Ks1anfkb=500, KSTAT1a2=200, Kas2stat3a=150, Kas5pu1=800, LPScsf1=0.004, KdmCSF1=0.13,
+
+
+
+dmSTAT3/dt=Vm1STAT3 + Vm2STAT3 * (STAT3a^n/(KSTAT3a^n+STAT3a^n)) + Vm3STAT3 * (STAT1a^n/(KSTAT1a4^n+STAT1a^n)) + LPS2*LPSstat3 - KdmSTAT3 * mSTAT3
+
+param Vm1STAT3=0.00001, Vm2STAT3=0.00001, Vm3STAT3=0.0021, KSTAT1a4=35, KSTAT3a=15, LPSstat3=0.001, KdmSTAT3=0.097,
+
+
+
+dmMCSFR/dt=Vm1MCSFR + Vm2MCSFR * (PU1/(Kas4PU1 + PU1)) + Vm3MCSFR * (CEBPAa^n/(Kas4cebpa^n+CEBPAa^n)) + Vm4MCSFR * (STAT3a^n/(Kas5stat3a^n+STAT3a^n)) + LPS2*LPSmcsfr - KdmMCSFR * mMCSFR
+
+param Vm1MCSFR=0.00001, Vm2MCSFR=0.0001, Vm3MCSFR=0.004, Vm4MCSFR=0.00005, Kas4PU1=3000, Kas4cebpa=20, Kas5stat3a=25, LPSmcsfr=0.0012, KdmMCSFR=0.03,
+
+
+
+dmCEBPA/dt=Vm1CEBPA + (Vm2CEBPA * (PU1/(Kas10PU1 + PU1)) + Vm3CEBPA * (STAT3a^n/(Kas3stat3a^n+STAT3a^n)))*(K2LPS/(K2LPS+LPS)) - KdmCEBPA * mCEBPA
+
+param Vm1CEBPA=0.00008, Vm2CEBPA=0.0005, Vm3CEBPA=0.0008, Kas10PU1=500, Kas3stat3a=25, K2LPS=0.0000000001, KdmCEBPA=0.175,
+
+
+
+dmNFKB/dt=Vm1NFKB + Vm2NFKB * (NFKBa^n/(NFKBa^n+Ks3anfkb^n)) + Vm3NFKB * (LPS/(KLPS+LPS)) + Vm4NFKB * (PU1/(PU1+Kas6pu1)) + Vm5NFKB * (CEBPAa^n/(CEBPAa^n + Kas8cebpa^n)) - KdmNFKB * mNFKB
+
+param Vm1NFKB=0.00000067, Vm2NFKB=0.0018, Vm3NFKB=0.018, Vm4NFKB=0.0006, Vm5NFKB=0.002, Ks3anfkb=6.67, KLPS=0.1, Kas6pu1=5000, Kas8cebpa=25, KdmNFKB=0.137,
+
+
+
+dmSTAT1/dt=Vm1STAT1 + (Vm2STAT1 * (STAT1a^n/(KSTAT1a3^n+STAT1a^n)) + Vm3STAT1 * (NFKBa^n/(NFKBa^n+Ks4anfkb^n)) + LPS2*LPSstat1)*(KiIRF8/(KiIRF8+IRF8)) - KdmSTAT1 * mSTAT1
+
+param Vm1STAT1=0.00005, Vm2STAT1=0.001, Vm3STAT1=0.001, KSTAT1a3=6.25, Ks4anfkb=0.67, LPSstat1=0.008, KiIRF8=400, KdmSTAT1=0.1,
+
+
+
+IRF8= cPROT * mIRF8
+PU1= cPROT * mPU1
+GCSFR= cPROT * mGCSFR
+IL6R= cPROT * mIL6R
+TNFR1= cPROT * mTNFR1
+CSF1= cPROT * mCSF1
+
+param cPROT = 3000,
+  
+
+
+dSTAT3a/dt = (Va1STAT3 * TNFR1 + Va2STAT3 * STAT1a + Va3STAT3 * GCSFR + Va4STAT3 * MCSFRa) * (STAT3i/(KaSTAT3+STAT3i)) - ViSTAT3 * (STAT3a/(KiSTAT3+STAT3a))
+
+param Va1STAT3=1.6, Va2STAT3=1.6, Va3STAT3=30, Va4STAT3=0.7, KaSTAT3=100, ViSTAT3=0.5, KiSTAT3=100,
+
+
+
+dMCSFRa/dt = VaMCSFR * CSF1 * (MCSFRi/(KaMCSFR+MCSFRi)) - ViMCSFR * (MCSFRa/(KiMCSFR+MCSFRa))
+
+param VaMCSFR=288, KaMCSFR=100, ViMCSFR=0.5, KiMCSFR=100,
+
+
+
+dCEBPAa/dt = VaCEBPA * GCSFR * (CEBPAi/(KaCEBPA+CEBPAi)) - ViCEBPA * (CEBPAa/(KiCEBPA+CEBPAa))
+
+param VaCEBPA=1050, KaCEBPA=1000, ViCEBPA=0.7, KiCEBPA=1000,
+
+
+
+dNFKBa/dt = VaNFKB * TNFR1 * (NFKBi/(KaNFKB+NFKBi)) - ViNFKB * (NFKBa/(KiNFKB+NFKBa))
+
+param VaNFKB=160, KaNFKB=500, ViNFKB=1, KiNFKB=1000,
+
+
+
+dSTAT1a/dt = (Va1STAT1 * IL6R + Va2STAT1 * MCSFRa + Va3STAT1 * STAT3a + Va4STAT1 * LPS) * (STAT1i/(KaSTAT1+STAT1i)) - ViSTAT1 * (STAT1a/(KiSTAT1+STAT1a))
+
+param Va1STAT1=2, Va2STAT1=0.35, Va3STAT1=2, Va4STAT1=0.01, KaSTAT1=3000, ViSTAT1=0.06, KiSTAT1=3000,
+
+
+
+STAT3i = cPROT*mSTAT3 - STAT3a
+MCSFRi = cPROT*mMCSFR - MCSFRa
+CEBPAi = cPROT*mCEBPA - CEBPAa
+NFKBi = cPROT*mNFKB - NFKBa
+STAT1i = cPROT*mSTAT1 - STAT1a
+
+
+
+
+
+### Initial conditions
+
+init mIRF8 = 0.01
+init mPU1 = 0.04 
+init mGCSFR = 0.0005
+init mIL6R = 0.004 
+init mTNFR1 = 0.01 
+init mCSF1 = 0.1
+init mSTAT3 = 0.004
+init mMCSFR = 0.025
+init mCEBPA = 0.003
+init mNFKB = 0.005
+init mSTAT1 = 0.007
+init STAT3a = 15
+init MCSFRa = 15
+init CEBPAa = 15
+init NFKBa = 15
+init STAT1a = 15
+init LPS = 20
+
+### Integration parameters
+
+@ meth=stiff, maxstor=10000000, bounds=10000000000, total=32
