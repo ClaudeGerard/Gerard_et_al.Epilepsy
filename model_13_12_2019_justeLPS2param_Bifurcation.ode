@@ -1,5 +1,5 @@
 # GRN involved in epilepsy
-# To perform the specific conditions of the bifurcation diagrams shown in Figure 4 (Gérard & al, Plos comput biol), trans = 0.8 and bifurcation diagrams is performed as a function of LPS2.
+# To perform the specific conditions of the bifurcation diagrams shown in Figure 4 (Gérard & al, Plos comput biol), trans = 0.8 and bifurcation diagrams are performed as a function of LPS2.
 # the existence of an irreversible bistable switch as a function of LPS2 is also observed if trans = 1.
 
 # dLPS/dt = vslps - kdlps*LPS
